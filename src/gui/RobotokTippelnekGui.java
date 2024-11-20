@@ -114,10 +114,10 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
         );
 
         buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("A kitalálandót is mutatja");
+        jRadioButton1.setText("Kitalálandó + eredmény");
 
         buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Tippeket is mutatja");
+        jRadioButton2.setText("Tippek + eredmény");
 
         buttonGroup1.add(rdbmindentMutat);
         rdbmindentMutat.setSelected(true);

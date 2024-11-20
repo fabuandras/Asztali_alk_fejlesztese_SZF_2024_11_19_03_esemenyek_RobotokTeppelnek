@@ -4,6 +4,7 @@
  */
 package gui;
 
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,6 +18,7 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
      */
     public RobotokTippelnekGui() {
         initComponents();
+        frissitTextArea();
     }
 
     /**
@@ -35,13 +37,13 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1_szovegdoboz1 = new javax.swing.JTextArea();
+        haromRobotTextArea = new javax.swing.JTextArea();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3_mindent_mutat = new javax.swing.JRadioButton();
+        rdbmindentMutat = new javax.swing.JRadioButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2_szovegdoboz2 = new javax.swing.JTextArea();
+        egyRobotTextArea = new javax.swing.JTextArea();
         jCheckBox2_moge_fuz = new javax.swing.JCheckBox();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -77,6 +79,7 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Tippelő robotok");
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -89,10 +92,9 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        jTextArea1_szovegdoboz1.setColumns(20);
-        jTextArea1_szovegdoboz1.setRows(5);
-        jTextArea1_szovegdoboz1.setText("A kitalálandó szám: 10\n1. robot tippje: 10\n2. robot tippje: 4\n3. robot tippje: 2\nAz 1. robot eltalálta!\n\nA kitalálandó szám: 10\n1. robot tippje: 3\n2. robot tippje: 10\n3. robot tippje: 10\nA 2. robot eltalálta!\nA 3. robot eltalálta!");
-        jScrollPane1.setViewportView(jTextArea1_szovegdoboz1);
+        haromRobotTextArea.setColumns(20);
+        haromRobotTextArea.setRows(5);
+        jScrollPane1.setViewportView(haromRobotTextArea);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -117,16 +119,15 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("Tippeket is mutatja");
 
-        buttonGroup1.add(jRadioButton3_mindent_mutat);
-        jRadioButton3_mindent_mutat.setSelected(true);
-        jRadioButton3_mindent_mutat.setText("Mindent mutat");
+        buttonGroup1.add(rdbmindentMutat);
+        rdbmindentMutat.setSelected(true);
+        rdbmindentMutat.setText("Mindent mutat");
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("EGY robot"));
 
-        jTextArea2_szovegdoboz2.setColumns(20);
-        jTextArea2_szovegdoboz2.setRows(5);
-        jTextArea2_szovegdoboz2.setText("A kitalálandó szám: 1\nAz 1. tipp: 2\nA 2. tipp: 7\nA 3. tipp: 7\nNem siekrült háromból eltalálni!\n\nA kitalálandó szám: 1\nAz 1. tipp: 3\nA 2. tipp: 6\nA 3. tipp: 3\nNem siekrült háromból eltalálni!");
-        jScrollPane2.setViewportView(jTextArea2_szovegdoboz2);
+        egyRobotTextArea.setColumns(20);
+        egyRobotTextArea.setRows(5);
+        jScrollPane2.setViewportView(egyRobotTextArea);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -167,7 +168,7 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
                                 .addComponent(jRadioButton2)
                                 .addGap(81, 81, 81)
                                 .addComponent(jCheckBox2_moge_fuz))
-                            .addComponent(jRadioButton3_mindent_mutat))
+                            .addComponent(rdbmindentMutat))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -183,7 +184,7 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
                     .addComponent(jRadioButton2)
                     .addComponent(jCheckBox2_moge_fuz))
                 .addGap(3, 3, 3)
-                .addComponent(jRadioButton3_mindent_mutat)
+                .addComponent(rdbmindentMutat)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -279,8 +280,8 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
                             .addComponent(txtVelSzam1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jCheckBox1_kulonbozo_szamok)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -464,10 +465,10 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
         numMin.setValue(1);
         numMax.setValue(10);
         jCheckBox1_kulonbozo_szamok.setSelected(false);
-        jRadioButton3_mindent_mutat.setSelected(true);
+        rdbmindentMutat.setSelected(true);
         jCheckBox2_moge_fuz.setSelected(false);
-        jTextArea1_szovegdoboz1.setText("");
-        jTextArea2_szovegdoboz2.setText("");
+        haromRobotTextArea.setText("");
+        egyRobotTextArea.setText("");
     }//GEN-LAST:event_jMenuItem2_AlapallapotActionPerformed
 
     private void kilepes(){
@@ -479,6 +480,72 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
         if (valasz == JOptionPane.OK_OPTION) {
             final int HIBA_KOD = 0;
             System.exit(HIBA_KOD);
+        }
+    }
+    
+    private void frissitTextArea() {
+        haromRobotTextArea.setText("");
+        egyRobotTextArea.setText("");
+
+        if (rdbmindentMutat.isSelected()) {
+            Random rnd = new Random();
+            int kitalalandoSzam = rnd.nextInt(10) + 1;
+            int tipp1 = rnd.nextInt(10) + 1;
+            int tipp2 = rnd.nextInt(10) + 1;
+            int tipp3 = rnd.nextInt(10) + 1;
+
+            // HÁROM robot szövegdobozának tartalma
+            String haromRobotSzoveg = "Három robot tippel egyet-egyet:\n";
+            haromRobotSzoveg += "A kitalálandó szám: " + kitalalandoSzam + "\n";
+            haromRobotSzoveg += "1. robot tippje: " + tipp1 + "\n";
+            haromRobotSzoveg += "2. robot tippje: " + tipp2 + "\n";
+            haromRobotSzoveg += "3. robot tippje: " + tipp3 + "\n";
+
+            boolean voltTalalat = false;
+            if (tipp1 == kitalalandoSzam) {
+                voltTalalat = true;
+                haromRobotSzoveg += "Az 1. robot eltalálta!\n";
+            }
+            if (tipp2 == kitalalandoSzam) {
+                voltTalalat = true;
+                haromRobotSzoveg += "A 2. robot eltalálta!\n";
+            }
+            if (tipp3 == kitalalandoSzam) {
+                voltTalalat = true;
+                haromRobotSzoveg += "A 3. robot eltalálta!\n";
+            }
+            if (!voltTalalat) {
+                haromRobotSzoveg += "Egyik robot sem találta el!\n";
+            }
+            haromRobotTextArea.setText(haromRobotSzoveg);
+
+            // EGY robot:
+            int kitalalandoSzam2 = rnd.nextInt(10) + 1;
+            int tipp = rnd.nextInt(10) + 1;
+
+            // EGY robot szövegdobozának tartalma
+            String egyRobotSzoveg = "Egy robot tippelhet háromszor:\n";
+            egyRobotSzoveg += "A kitalálandó szám: " + kitalalandoSzam2 + "\n";
+            egyRobotSzoveg += "Az 1. tipp: " + tipp + "\n";
+
+            if (tipp == kitalalandoSzam2) {
+                egyRobotSzoveg += "Elsőre sikerült eltalálni!\n";
+            } else {
+                tipp = rnd.nextInt(10) + 1;
+                egyRobotSzoveg += "A 2. tipp: " + tipp + "\n";
+                if (tipp == kitalalandoSzam2) {
+                    egyRobotSzoveg += "Másodikra sikerült eltalálni!\n";
+                } else {
+                    tipp = rnd.nextInt(10) + 1;
+                    egyRobotSzoveg += "A 3. tipp: " + tipp + "\n";
+                    if (tipp == kitalalandoSzam2) {
+                        egyRobotSzoveg += "Harmadikra sikerült eltalálni!\n";
+                    } else {
+                        egyRobotSzoveg += "Nem sikerült háromból eltalálni!\n";
+                    }
+                }
+            }
+            egyRobotTextArea.setText(egyRobotSzoveg);
         }
     }
     /**
@@ -521,6 +588,8 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
     private javax.swing.JButton btnGeneral;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JTextArea egyRobotTextArea;
+    private javax.swing.JTextArea haromRobotTextArea;
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1_kulonbozo_szamok;
     private javax.swing.JCheckBox jCheckBox2_moge_fuz;
@@ -548,7 +617,6 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3_mindent_mutat;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -556,12 +624,11 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1_szovegdoboz1;
-    private javax.swing.JTextArea jTextArea2_szovegdoboz2;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JMenuItem mnuKilepes;
     private javax.swing.JSpinner numMax;
     private javax.swing.JSpinner numMin;
+    private javax.swing.JRadioButton rdbmindentMutat;
     private javax.swing.JTextField txtVelSzam1;
     private javax.swing.JTextField txtVelSzam2;
     // End of variables declaration//GEN-END:variables
